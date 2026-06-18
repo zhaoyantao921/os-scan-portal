@@ -1,0 +1,111 @@
+{
+  "month": "2026-06",
+  "scannedAt": "2026-06-15T10:00:00Z",
+  "updates": [
+    {
+      "id": "and-1",
+      "platform": "android",
+      "title": "Android 16 Beta 3 发布",
+      "date": "2026-06-15",
+      "summary": "API Level 36 · 新增 Privacy Sandbox API · 修复 12 个安全漏洞",
+      "severity": "critical",
+      "items": [
+        "API Level 36 正式发布，新增 47 个 API",
+        "Privacy Sandbox API：Topics、Protected Audience、Attribution Reporting",
+        "前台服务类型新增 dataSync、health、location",
+        "修复 CVE-2026-0012、CVE-2026-0034 等 12 个安全漏洞",
+        "废弃 AsyncTask、LoaderManager，推荐迁移至 Coroutines",
+        "新增 Predictive Back 手势强制启用",
+        "JobScheduler 新增网络约束条件 API",
+        "蓝牙 LE Audio 广播增强"
+      ]
+    },
+    {
+      "id": "hm-1",
+      "platform": "harmonyos",
+      "title": "HarmonyOS 5.2.0.120 推送",
+      "date": "2026-06-12",
+      "summary": "ArkUI 组件更新 · 分布式能力增强 · Stage 模型优化",
+      "severity": "major",
+      "items": [
+        "ArkUI 新增 Refresh 组件、SwipeRefresher 手势",
+        "分布式数据管理新增跨设备同步回调",
+        "Stage 模型支持多实例 Worker",
+        "方舟编译器优化，冷启动速度提升 15%",
+        "元服务新增桌面卡片 2.0 协议",
+        "修复蓝牙 BLE 扫描功耗异常",
+        "新增华为支付 SDK v5 适配接口",
+        "ArkTS 新增装饰器 @StorageLink 支持嵌套对象",
+        "安全补丁：修复内核漏洞 CVE-2026-4501",
+        "应用沙箱权限模型升级",
+        "WebView 组件内核升级至 Chromium 120",
+        "新增 WiFi 7 协议栈支持"
+      ]
+    },
+    {
+      "id": "ios-1",
+      "platform": "ios",
+      "title": "iOS 20.1 正式版推送",
+      "date": "2026-06-10",
+      "summary": "SwiftUI 新组件 · Xcode 17 支持 · App Intents 扩展",
+      "severity": "major",
+      "items": [
+        "SwiftUI 新增 Grid 布局组件、TimelineView 增强",
+        "Xcode 17 正式支持，最低部署目标调整",
+        "App Intents 新增 Siri 快捷指令模板",
+        "StoreKit 2 新增订阅管理 API",
+        "修复 CarPlay 断连问题",
+        "安全更新：修复 WebKit CVE-2026-12001"
+      ]
+    },
+    {
+      "id": "and-2",
+      "platform": "android",
+      "title": "Android 15 QPR3 安全补丁",
+      "date": "2026-06-05",
+      "summary": "月度安全更新 · 修复 8 个漏洞 · 蓝牙/WiFi 稳定性",
+      "severity": "minor",
+      "items": [
+        "修复 Framework 层权限提升漏洞",
+        "WiFi 驱动稳定性修复",
+        "蓝牙 HID 设备连接修复",
+        "修复 SystemUI 内存泄漏",
+        "更新 Google Play 系统更新至 2026-06-01 版本"
+      ]
+    },
+    {
+      "id": "hm-2",
+      "platform": "harmonyos",
+      "title": "HarmonyOS 开发者工具 DevEco Studio 5.4 发布",
+      "date": "2026-06-03",
+      "summary": "IDE 更新 · 性能分析增强 · 鸿蒙生态 SDK 更新",
+      "severity": "minor",
+      "items": [
+        "DevEco Studio 5.4.0.200 正式版",
+        "新增 CPU Profiler 火焰图分析",
+        "ArkUI Inspector 支持实时预览",
+        "集成 hvigor 5.4 构建工具"
+      ]
+    }
+  ],
+  "adaptations": [
+    {
+      "platform": "android",
+      "issue": "Android 16 废弃 AsyncTask 和 LoaderManager",
+      "solution": "将现有 AsyncTask 调用迁移至 Kotlin Coroutines 或 RxJava。LoaderManager 替换为 ViewModel + LiveData/Flow。预计改造工作量：中等（涉及约 15 个文件）。",
+      "impact": "high"
+    },
+    {
+      "platform": "harmonyos",
+      "issue": "HarmonyOS 5.2 Stage 模型多实例 Worker",
+      "solution": "如使用 FA 模型需迁移至 Stage 模型。更新 module.json5 配置，将 abilities 改为 extensionAbilities。Worker 改为多实例模式。",
+      "impact": "high"
+    },
+    {
+      "platform": "ios",
+      "issue": "iOS 20.1 Xcode 17 最低部署目标调整",
+      "solution": "升级 CI/CD 构建环境至 Xcode 17。检查 Deployment Target 是否满足新要求。更新 intentdefinition 文件以支持 App Intents 新模板。",
+      "impact": "medium"
+    }
+  ]
+}

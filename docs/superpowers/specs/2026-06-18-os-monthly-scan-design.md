@@ -2,13 +2,13 @@
 
 **受众**：内部开发团队自查工具
 **数据方案**：Mock 数据 + 预留爬虫接口层
-**技术栈**：React 18 + Vite + TypeScript
+**技术栈**：Vue 3 + Vite + TypeScript
 
 ---
 
 ### 整体架构
 
-React + Vite SPA
+Vue 3 + Vite SPA
 ├── App Shell（顶部导航栏：标题 + 当前月份 + 「扫描」按钮）
 ├── 主内容区
 │   ├── 平台筛选 Pill 条（全部 / Android / HarmonyOS / iOS）

@@ -1,0 +1,34 @@
+{
+  "month": "2026-05",
+  "scannedAt": "2026-05-20T10:00:00Z",
+  "updates": [
+    {
+      "id": "and-may-1",
+      "platform": "android",
+      "title": "Android 16 Beta 2 发布",
+      "date": "2026-05-18",
+      "summary": "API 调整 · 权限模型变更 · 性能优化",
+      "items": ["API Level 35 预览", "运行时权限细化", "后台任务限制调整"],
+      "severity": "major"
+    },
+    {
+      "id": "hm-may-1",
+      "platform": "harmonyos",
+      "title": "HarmonyOS 5.1.1 安全更新",
+      "date": "2026-05-10",
+      "summary": "内核安全补丁 · 应用沙箱加固",
+      "items": ["修复 CVE-2026-3200", "沙箱逃逸漏洞修复"],
+      "severity": "critical"
+    },
+    {
+      "id": "ios-may-1",
+      "platform": "ios",
+      "title": "iOS 19.5 正式版",
+      "date": "2026-05-08",
+      "summary": "性能优化 · 修复 CarPlay 问题",
+      "items": ["Metal 3 性能增强", "修复邮件应用崩溃"],
+      "severity": "minor"
+    }
+  ],
+  "adaptations": []
+}
