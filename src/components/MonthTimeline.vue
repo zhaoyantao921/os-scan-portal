@@ -45,17 +45,15 @@ const months = computed<MonthEntry[]>(() => {
   });
 });
 
-const lineGradient = computed(() => {
-  const stopPercent = (realMonth / 12) * 100;
-  return `linear-gradient(to bottom, #1e2130 ${stopPercent}%, transparent ${stopPercent}%)`;
-});
+const lineGradient = computed(() =>
+  'linear-gradient(to bottom, #1e2130 90%, transparent 100%)'
+);
 </script>
 
 <template>
   <nav class="timeline">
-    <div class="timeline-accent"></div>
     <div class="timeline-track">
-        <div class="timeline-year">{{ realYear }}</div>
+      <div class="timeline-year">{{ realYear }}</div>
       <div class="timeline-line" :style="{ background: lineGradient }"></div>
       <button
         v-for="m in months"
@@ -64,11 +62,10 @@ const lineGradient = computed(() => {
         :class="{
           scanned: m.isScanned && !m.isCurrent,
           current: m.isCurrent,
-          future: m.isFuture,
+          future: m.isFuture && !m.isScanned,
         }"
-        :disabled="m.isFuture"
-        :title="m.isScanned && !m.isCurrent ? '点击查看扫描结果' : ''"
-        @click="!m.isFuture && emit('select', m.key)"
+        :title="m.isFuture && !m.isScanned ? '该月暂无数据' : '点击查看扫描结果'"
+        @click="emit('select', m.key)"
       >
         <span class="dot"></span>
         <span class="label">{{ m.label }}</span>
@@ -88,16 +85,6 @@ const lineGradient = computed(() => {
   position: relative;
 }
 
-.timeline-accent {
-  position: absolute;
-  top: 0;
-  left: -1px;
-  width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, #3b82f6, transparent);
-  opacity: 0.5;
-}
-
 .timeline-track {
   display: flex;
   flex-direction: column;
@@ -107,7 +94,7 @@ const lineGradient = computed(() => {
 }
 
 .timeline-year {
-  font-size: 9px;
+  font-size: 11px;
   color: #3b82f6;
   font-weight: 500;
   margin-bottom: 6px;
@@ -117,7 +104,7 @@ const lineGradient = computed(() => {
 
 .timeline-line {
   position: absolute;
-  top: 12px;
+  top: 24px;
   bottom: 12px;
   left: 50%;
   width: 1px;
@@ -142,11 +129,6 @@ const lineGradient = computed(() => {
   appearance: none;
 }
 
-.timeline-dot:disabled {
-  cursor: default;
-  opacity: 0.35;
-}
-
 .timeline-dot .dot {
   display: block;
   border-radius: 50%;
@@ -168,7 +150,7 @@ const lineGradient = computed(() => {
 }
 
 .timeline-dot.scanned .label {
-  font-size: 10px;
+  font-size: 12px;
   color: #64748b;
   transition: color 0.2s;
 }
@@ -192,21 +174,30 @@ const lineGradient = computed(() => {
 }
 
 .timeline-dot.current .label {
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
   color: #60a5fa;
   text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
 }
 
 .timeline-dot.future .dot {
-  width: 5px;
-  height: 5px;
-  background: #0d1117;
-  border: 1px solid #151a24;
+  width: 6px;
+  height: 6px;
+  background: #1a1f2e;
+  border: 1px solid #252b3b;
+}
+
+.timeline-dot.future:hover .dot {
+  background: #2d3748;
+  border-color: #4a5568;
 }
 
 .timeline-dot.future .label {
-  font-size: 9px;
-  color: #151a24;
+  font-size: 11px;
+  color: #374151;
+}
+
+.timeline-dot.future:hover .label {
+  color: #64748b;
 }
 </style>

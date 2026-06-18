@@ -24,7 +24,7 @@ defineEmits<{ scan: [] }>();
 <style scoped>
 .app-header {
   background: #0d1117;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-bottom: 1px solid #1e2130;
   display: flex;
   align-items: center;
@@ -56,7 +56,7 @@ defineEmits<{ scan: [] }>();
 }
 
 .header-title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   color: #e2e8f0;
   margin: 0;
@@ -65,7 +65,7 @@ defineEmits<{ scan: [] }>();
 
 .header-month {
   color: #64748b;
-  font-size: 10px;
+  font-size: 16px;
   background: rgba(30, 33, 48, 0.8);
   border: 1px solid #1e2130;
   padding: 2px 8px;
@@ -74,7 +74,7 @@ defineEmits<{ scan: [] }>();
 }
 
 .header-year-tag {
-  font-size: 9px;
+  font-size: 15px;
   color: #3b82f6;
   border: 1px solid rgba(59, 130, 246, 0.25);
   background: rgba(59, 130, 246, 0.08);
@@ -90,9 +90,9 @@ defineEmits<{ scan: [] }>();
   gap: 6px;
   background: rgba(6, 182, 212, 0.08);
   color: #22d3ee;
-  padding: 5px 14px;
+  padding: 7px 16px;
   border-radius: 4px;
-  font-size: 11px;
+  font-size: 15px;
   border: 1px solid rgba(6, 182, 212, 0.2);
   cursor: pointer;
   transition: all 0.25s;
@@ -132,5 +132,22 @@ defineEmits<{ scan: [] }>();
 @keyframes dot-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.3; }
+}
+@media (max-width: 768px) {
+  .app-header {
+    padding: 10px 14px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .header-left {
+    gap: 6px;
+  }
+  .header-title {
+    font-size: 14px;
+  }
+  .btn-scan {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
 }
 </style>

@@ -25,7 +25,7 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
   >
     <div class="card-header" @click="expanded = !expanded">
       <div class="platform-badge-row">
-        <PlatformIcon :platform="update.platform" :size="16" />
+        <PlatformIcon :platform="update.platform" :size="24" />
         <span
           class="platform-badge"
           :style="{ background: platformConfig[update.platform].color }"
@@ -92,7 +92,7 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
   display: flex;
   gap: 8px;
   align-items: flex-start;
-  padding: 10px 12px 6px;
+  padding: 12px 14px 6px;
   cursor: pointer;
 }
 
@@ -106,9 +106,9 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
 
 .platform-badge {
   color: #fff;
-  padding: 1px 5px;
+  padding: 2px 7px;
   border-radius: 2px;
-  font-size: 8px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 0.3px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
@@ -126,14 +126,14 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
 }
 
 .card-title {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 600;
   color: #e2e8f0;
 }
 
 .card-date {
   color: #4a5568;
-  font-size: 9px;
+  font-size: 15px;
   flex-shrink: 0;
   margin-left: 8px;
   font-family: 'SF Mono', 'Cascadia Code', monospace;
@@ -141,14 +141,14 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
 
 .card-summary {
   color: #8b9dc3;
-  font-size: 10px;
+  font-size: 16px;
   margin-top: 2px;
   margin-bottom: 0;
 }
 
 .expand-hint {
   color: #4a5568;
-  font-size: 9px;
+  font-size: 15px;
   padding: 0 12px 4px 48px;
 }
 
@@ -164,7 +164,7 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
 }
 
 .card-items li {
-  font-size: 10px;
+  font-size: 16px;
   color: #8b9dc3;
   line-height: 1.7;
   position: relative;
@@ -181,7 +181,7 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
   display: block;
   text-align: center;
   color: var(--card-accent);
-  font-size: 9px;
+  font-size: 15px;
   cursor: pointer;
   margin-top: 6px;
 }
@@ -190,7 +190,7 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 4px 12px 8px 48px;
+  padding: 6px 14px 8px 48px;
   border-top: 1px solid #151a24;
 }
 
@@ -203,7 +203,18 @@ const platformConfig: Record<string, { label: string; color: string; glow: strin
 }
 
 .source-text {
-  font-size: 8px;
+  font-size: 16px;
   color: #374151;
+}
+@media (max-width: 768px) {
+  .card-header {
+    padding: 10px 10px 4px;
+  }
+  .platform-badge-row {
+    gap: 2px;
+  }
+  .expand-hint, .card-items {
+    padding-left: 30px;
+  }
 }
 </style>

@@ -68,16 +68,24 @@ watch(currentMonth, (m) => {
 <style scoped>
 .app { height: 100vh; display: flex; flex-direction: column; background: #0a0c14; color: #e2e8f0; }
 .app-body { flex: 1; display: flex; overflow: hidden; }
-.content { flex: 1; padding: 14px 18px; overflow-y: auto; position: relative; }
+.content { flex: 1; padding: 16px 22px; overflow-y: auto; position: relative; }
 .scanning-overlay {
   position: absolute; inset: 0; background: rgba(10,12,20,0.85); display: flex;
   flex-direction: column; align-items: center; justify-content: center;
-  gap: 12px; font-size: 12px; color: #8b9dc3; z-index: 10;
+  gap: 12px; font-size: 16px; color: #8b9dc3; z-index: 10;
 }
 .spinner { width: 20px; height: 20px; border: 2px solid #1e2130; border-top-color: #3b82f6; border-radius: 50%; animation: spin 0.6s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.empty { text-align: center; padding: 60px 40px; color: #4a5568; font-size: 13px; }
+.empty { text-align: center; padding: 60px 40px; color: #4a5568; font-size: 15px; }
 .empty-icon { font-size: 40px; margin-bottom: 12px; }
 .empty p { margin: 0; color: #6b7280; }
-.empty .empty-hint { font-size: 10px; color: #4a5568; margin-top: 6px; }
+.empty .empty-hint { font-size: 16px; color: #4a5568; margin-top: 6px; }
+@media (max-width: 768px) {
+  .scanning-overlay {
+    font-size: 13px;
+  }
+  .empty {
+    padding: 40px 20px;
+  }
+}
 </style>

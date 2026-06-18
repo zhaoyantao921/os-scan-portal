@@ -31,7 +31,7 @@ const filters = [
 .filter-pill {
   padding: 2px 10px;
   border-radius: 10px;
-  font-size: 10px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
   background: #1e2130;
@@ -47,5 +47,15 @@ const filters = [
 .filter-pill.active {
   background: #3b82f6;
   color: #fff;
+}
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .filter-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+  }
 }
 </style>

@@ -73,7 +73,7 @@ function formatTime(iso: string | undefined): string {
 }
 
 .source-label {
-  font-size: 9px;
+  font-size: 15px;
   color: #4a5568;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -90,7 +90,7 @@ function formatTime(iso: string | undefined): string {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 9px;
+  font-size: 15px;
   color: #64748b;
   text-decoration: none;
   transition: color 0.2s;
@@ -109,7 +109,7 @@ function formatTime(iso: string | undefined): string {
 }
 
 .source-meta {
-  font-size: 9px;
+  font-size: 15px;
   color: #4a5568;
 }
 
@@ -121,5 +121,19 @@ function formatTime(iso: string | undefined): string {
   content: '·';
   margin: 0 6px;
   color: #2d3748;
+}
+@media (max-width: 768px) {
+  .source-body {
+    gap: 6px;
+  }
+  .source-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  .source-links {
+    flex-direction: column;
+    gap: 2px;
+  }
 }
 </style>

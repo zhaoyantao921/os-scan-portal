@@ -63,7 +63,7 @@ const hiddenCount = computed(() => Math.max(0, filteredUpdates.value.length - 3)
   background: none;
   border: none;
   color: #3b82f6;
-  font-size: 10px;
+  font-size: 16px;
   cursor: pointer;
 }
 
