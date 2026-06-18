@@ -1,0 +1,184 @@
+<h2>时间轴优化 — 竖轴窄版</h2>
+<p class="subtitle">右侧竖轴收窄至 64px，圆点连线 + 月份简写，当前月高亮</p>
+
+<div class="mockup">
+  <div class="mockup-header">整体布局（时间轴宽度 64px）</div>
+  <div class="mockup-body">
+    <div style="background:#0f1117;border-radius:10px;overflow:hidden;font-family:system-ui,sans-serif">
+      <div style="background:#161822;padding:12px 20px;border-bottom:1px solid #1e2130;display:flex;align-items:center;justify-content:space-between">
+        <span style="font-size:14px;font-weight:600;color:#e2e8f0">📱 OS 月度更新扫描</span>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="color:#6b7280;font-size:10px">2026年6月</span>
+          <span style="background:#3b82f610;color:#3b82f6;padding:3px 10px;border-radius:4px;font-size:10px;border:1px solid #3b82f620">🔄 扫描</span>
+        </div>
+      </div>
+      <div style="display:flex;height:430px">
+        <!-- Main content area -->
+        <div style="flex:1;padding:14px 18px;overflow-y:auto;display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:5px;margin-bottom:2px">
+            <span style="background:#3b82f6;color:#fff;padding:2px 9px;border-radius:10px;font-size:10px">全部</span>
+            <span style="background:#1e2130;color:#6b7280;padding:2px 9px;border-radius:10px;font-size:10px">Android</span>
+            <span style="background:#1e2130;color:#6b7280;padding:2px 9px;border-radius:10px;font-size:10px">HarmonyOS</span>
+            <span style="background:#1e2130;color:#6b7280;padding:2px 9px;border-radius:10px;font-size:10px">iOS</span>
+          </div>
+          <!-- Feed items - same as before, compact -->
+          <div style="background:#161822;border:1px solid #1e2130;border-radius:5px;padding:10px 12px">
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <span style="background:#3b82f6;color:#fff;padding:1px 5px;border-radius:2px;font-size:8px;flex-shrink:0;margin-top:1px">AND</span>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;justify-content:space-between">
+                  <span style="font-size:11px;font-weight:600;color:#e2e8f0">Android 16 Beta 3 发布</span>
+                  <span style="color:#4a5568;font-size:9px;flex-shrink:0;margin-left:8px">06-15</span>
+                </div>
+                <div style="color:#8b9dc3;font-size:9px;margin-top:2px">API Level 36 · Privacy Sandbox · 12 安全修复</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#161822;border:1px solid #1e2130;border-radius:5px;padding:10px 12px">
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <span style="background:#10b981;color:#fff;padding:1px 5px;border-radius:2px;font-size:8px;flex-shrink:0;margin-top:1px">HM</span>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;justify-content:space-between">
+                  <span style="font-size:11px;font-weight:600;color:#e2e8f0">HarmonyOS 5.2.0.120 推送</span>
+                  <span style="color:#4a5568;font-size:9px;flex-shrink:0;margin-left:8px">06-12</span>
+                </div>
+                <div style="color:#8b9dc3;font-size:9px;margin-top:2px">ArkUI 组件更新 · Stage 模型优化</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#161822;border:1px solid #1e2130;border-radius:5px;padding:10px 12px">
+            <div style="display:flex;gap:8px;align-items:flex-start">
+              <span style="background:#8b5cf6;color:#fff;padding:1px 5px;border-radius:2px;font-size:8px;flex-shrink:0;margin-top:1px">IOS</span>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;justify-content:space-between">
+                  <span style="font-size:11px;font-weight:600;color:#e2e8f0">iOS 20.1 正式版推送</span>
+                  <span style="color:#4a5568;font-size:9px;flex-shrink:0;margin-left:8px">06-10</span>
+                </div>
+                <div style="color:#8b9dc3;font-size:9px;margin-top:2px">SwiftUI 新组件 · App Intents 扩展</div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center;padding:4px">
+            <span style="color:#3b82f6;font-size:10px">展开全部 27 条 →</span>
+          </div>
+          <!-- Adaptation card -->
+          <div style="background:#1a1f2e;border:1px solid #f59e0b20;border-radius:5px;padding:10px 12px">
+            <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+              <span style="color:#f59e0b;font-size:10px;font-weight:600">⚡ 开发者适配建议</span>
+              <span style="color:#4a5568;font-size:9px">3 条</span>
+            </div>
+            <div style="font-size:9px;color:#e2e8f0;line-height:1.6">
+              <div>1. Android 16 — Privacy Sandbox 迁移方案</div>
+              <div>2. HarmonyOS 5.2 — Stage 模型适配指南</div>
+              <div>3. iOS 20.1 — App Intents 扩展指南</div>
+            </div>
+          </div>
+        </div>
+        <!-- Slim vertical timeline - 64px -->
+        <div style="width:64px;background:#11131a;border-left:1px solid #1e2130;display:flex;align-items:center;justify-content:center;padding:12px 0">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0;position:relative;height:100%;justify-content:center">
+            <!-- Vertical line -->
+            <div style="position:absolute;left:12px;top:28px;bottom:28px;width:1px;background:#1e2130"></div>
+            
+            <!-- Jan -->
+            <div style="display:flex;align-items:center;gap:8px;height:26px;position:relative;z-index:1">
+              <div style="width:8px;height:8px;border-radius:50%;background:#1e2130;border:1.5px solid #2d3748;flex-shrink:0"></div>
+              <span style="font-size:10px;color:#4a5568;width:28px">1月</span>
+            </div>
+            <!-- Feb -->
+            <div style="display:flex;align-items:center;gap:8px;height:26px;position:relative;z-index:1">
+              <div style="width:8px;height:8px;border-radius:50%;background:#1e2130;border:1.5px solid #2d3748;flex-shrink:0"></div>
+              <span style="font-size:10px;color:#4a5568;width:28px">2月</span>
+            </div>
+            <!-- Mar -->
+            <div style="display:flex;align-items:center;gap:8px;height:26px;position:relative;z-index:1">
+              <div style="width:8px;height:8px;border-radius:50%;background:#1e2130;border:1.5px solid #2d3748;flex-shrink:0"></div>
+              <span style="font-size:10px;color:#4a5568;width:28px">3月</span>
+            </div>
+            <!-- Apr -->
+            <div style="display:flex;align-items:center;gap:8px;height:26px;position:relative;z-index:1">
+              <div style="width:8px;height:8px;border-radius:50%;background:#1e2130;border:1.5px solid #2d3748;flex-shrink:0"></div>
+              <span style="font-size:10px;color:#4a5568;width:28px">4月</span>
+            </div>
+            <!-- May -->
+            <div style="display:flex;align-items:center;gap:8px;height:26px;position:relative;z-index:1">
+              <div style="width:8px;height:8px;border-radius:50%;background:#1e2130;border:1.5px solid #2d3748;flex-shrink:0"></div>
+              <span style="font-size:10px;color:#4a5568;width:28px">5月</span>
+            </div>
+            <!-- Jun - current -->
+            <div style="display:flex;align-items:center;gap:8px;height:30px;position:relative;z-index:1">
+              <div style="width:10px;height:10px;border-radius:50%;background:#3b82f6;box-shadow:0 0 6px #3b82f660;flex-shrink:0"></div>
+              <span style="font-size:11px;color:#3b82f6;font-weight:600;width:28px">6月</span>
+            </div>
+            <!-- Jul - future, dimmed -->
+            <div style="display:flex;align-items:center;gap:8px;height:26px;position:relative;z-index:1">
+              <div style="width:6px;height:6px;border-radius:50%;background:#161822;border:1px solid #1a1f2e;flex-shrink:0"></div>
+              <span style="font-size:9px;color:#1c2130;width:28px">7月</span>
+            </div>
+            <!-- Aug - future -->
+            <div style="display:flex;align-items:center;gap:8px;height:26px;position:relative;z-index:1">
+              <div style="width:6px;height:6px;border-radius:50%;background:#161822;border:1px solid #1a1f2e;flex-shrink:0"></div>
+              <span style="font-size:9px;color:#1c2130;width:28px">8月</span>
+            </div>
+            <!-- truncated line -->
+            <div style="position:absolute;left:12px;bottom:12px;width:1px;height:18px;background:linear-gradient(to bottom, #1e2130, transparent)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex;gap:16px;margin-top:16px">
+  <div style="flex:1">
+    <h3>时间轴交互细节</h3>
+    <div class="mockup">
+      <div class="mockup-header">三种节点状态</div>
+      <div class="mockup-body">
+        <div style="display:flex;gap:24px;align-items:center;padding:16px;font-family:system-ui,sans-serif;background:#0f1117;border-radius:6px">
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:8px;height:8px;border-radius:50%;background:#1e2130;border:1.5px solid #2d3748"></div>
+            <div style="font-size:10px">
+              <div style="color:#6b7280">已扫描</div>
+              <div style="color:#4a5568">可点击回看</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:10px;height:10px;border-radius:50%;background:#3b82f6;box-shadow:0 0 6px #3b82f660"></div>
+            <div style="font-size:10px">
+              <div style="color:#3b82f6;font-weight:600">当前月</div>
+              <div style="color:#8b9dc3">高亮 + 光晕</div>
+            </div>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <div style="width:6px;height:6px;border-radius:50%;background:#161822;border:1px solid #1a1f2e"></div>
+            <div style="font-size:10px">
+              <div style="color:#1c2130">未到</div>
+              <div style="color:#1c2130">不可交互</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="margin-top:16px">
+  <h3>Hover 效果</h3>
+</div>
+<div class="mockup">
+  <div class="mockup-header">鼠标悬停已扫描月份时</div>
+  <div class="mockup-body">
+    <div style="display:flex;gap:24px;align-items:center;padding:16px;font-family:system-ui,sans-serif;background:#0f1117;border-radius:6px">
+      <div style="display:flex;align-items:center;gap:8px;padding:8px 12px;background:#1a1f2e;border-radius:6px;border:1px solid #3b82f640">
+        <div style="width:8px;height:8px;border-radius:50%;background:#3b82f6;border:1.5px solid #3b82f6"></div>
+        <div>
+          <div style="font-size:10px;color:#e2e8f0">5月</div>
+          <div style="font-size:9px;color:#3b82f6">点击查看扫描结果</div>
+        </div>
+        <span style="color:#3b82f6;font-size:8px">→</span>
+      </div>
+      <span style="color:#4a5568;font-size:9px">← hover 态：圆点变蓝 + tooltip</span>
+    </div>
+  </div>
+</div>

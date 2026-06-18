@@ -1,0 +1,130 @@
+<h2>详细布局设计 — 方案 C 深度稿</h2>
+<p class="subtitle">内部 OS 月度更新扫描工具 · 时间线 Feed 布局</p>
+
+<div class="mockup">
+  <div class="mockup-header">主界面结构（1280×800）</div>
+  <div class="mockup-body">
+    <div style="background:#0f1117;border-radius:10px;padding:0;overflow:hidden;font-family:system-ui,sans-serif">
+      <!-- Header -->
+      <div style="background:#161822;padding:14px 24px;border-bottom:1px solid #1e2130;display:flex;align-items:center;justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:15px;font-weight:600;color:#e2e8f0">📱 OS 月度更新扫描</span>
+          <span style="background:#1e2130;padding:2px 8px;border-radius:10px;color:#6b7280;font-size:10px">2026年6月</span>
+        </div>
+        <div style="display:flex;gap:8px">
+          <span style="background:#3b82f610;color:#3b82f6;padding:4px 10px;border-radius:4px;font-size:11px;border:1px solid #3b82f620">🔄 重新扫描</span>
+        </div>
+      </div>
+      <!-- Body -->
+      <div style="display:flex;height:400px">
+        <!-- Main Feed -->
+        <div style="flex:1;padding:16px 20px;overflow-y:auto;display:flex;flex-direction:column;gap:10px">
+          <!-- Platform filter pills -->
+          <div style="display:flex;gap:6px;margin-bottom:4px">
+            <span style="background:#3b82f6;color:#fff;padding:3px 10px;border-radius:12px;font-size:10px">全部</span>
+            <span style="background:#1e2130;color:#6b7280;padding:3px 10px;border-radius:12px;font-size:10px">Android</span>
+            <span style="background:#1e2130;color:#6b7280;padding:3px 10px;border-radius:12px;font-size:10px">HarmonyOS</span>
+            <span style="background:#1e2130;color:#6b7280;padding:3px 10px;border-radius:12px;font-size:10px">iOS</span>
+          </div>
+          <!-- Feed items -->
+          <div style="background:#161822;border:1px solid #1e2130;border-radius:6px;padding:12px 14px">
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="background:#3b82f6;color:#fff;padding:2px 6px;border-radius:3px;font-size:9px;flex-shrink:0;margin-top:2px">AND</span>
+              <div style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span style="font-size:12px;font-weight:600;color:#e2e8f0">Android 16 Beta 3 发布</span>
+                  <span style="color:#4a5568;font-size:10px">06-15</span>
+                </div>
+                <div style="color:#8b9dc3;font-size:10px;margin-top:3px">API Level 36 · 新增 Privacy Sandbox API · 修复 12 个安全漏洞</div>
+                <div style="color:#4a5568;font-size:9px;margin-top:4px">更新项 8 条 — 点击展开</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#161822;border:1px solid #1e2130;border-radius:6px;padding:12px 14px">
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="background:#10b981;color:#fff;padding:2px 6px;border-radius:3px;font-size:9px;flex-shrink:0;margin-top:2px">HM</span>
+              <div style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span style="font-size:12px;font-weight:600;color:#e2e8f0">HarmonyOS 5.2.0.120 推送</span>
+                  <span style="color:#4a5568;font-size:10px">06-12</span>
+                </div>
+                <div style="color:#8b9dc3;font-size:10px;margin-top:3px">ArkUI 组件更新 · 分布式能力增强 · Stage 模型优化</div>
+                <div style="color:#4a5568;font-size:9px;margin-top:4px">更新项 12 条 — 点击展开</div>
+              </div>
+            </div>
+          </div>
+          <div style="background:#161822;border:1px solid #1e2130;border-radius:6px;padding:12px 14px">
+            <div style="display:flex;gap:10px;align-items:flex-start">
+              <span style="background:#8b5cf6;color:#fff;padding:2px 6px;border-radius:3px;font-size:9px;flex-shrink:0;margin-top:2px">IOS</span>
+              <div style="flex:1">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span style="font-size:12px;font-weight:600;color:#e2e8f0">iOS 20.1 正式版推送</span>
+                  <span style="color:#4a5568;font-size:10px">06-10</span>
+                </div>
+                <div style="color:#8b9dc3;font-size:10px;margin-top:3px">SwiftUI 新组件 · Xcode 17 支持 · App Intents 扩展</div>
+                <div style="color:#4a5568;font-size:9px;margin-top:4px">更新项 6 条 — 点击展开</div>
+              </div>
+            </div>
+          </div>
+          <!-- 显示更多 -->
+          <div style="text-align:center;padding:6px">
+            <span style="color:#3b82f6;font-size:10px">显示全部 27 条更新 →</span>
+          </div>
+          <!-- 开发者适配建议区域 -->
+          <div style="background:#1a1f2e;border:1px solid #f59e0b20;border-radius:6px;padding:12px 14px;margin-top:4px">
+            <div style="color:#f59e0b;font-size:11px;font-weight:600;margin-bottom:6px">⚡ 开发者适配建议</div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <div style="font-size:10px;color:#e2e8f0">1. <b>Android 16</b> — Privacy Sandbox 迁移：评估现有广告 SDK，替换为 Privacy Sandbox API</div>
+              <div style="font-size:10px;color:#e2e8f0">2. <b>HarmonyOS 5.2</b> — Stage 模型适配：迁移 FA 模型到 Stage 模型，更新 module.json5</div>
+              <div style="font-size:10px;color:#e2e8f0">3. <b>iOS 20.1</b> — App Intents 扩展：新增 Siri 交互入口，需更新 intentdefinition 文件</div>
+            </div>
+            <div style="margin-top:8px;display:flex;gap:6px">
+              <span style="background:#f59e0b10;color:#f59e0b;padding:2px 8px;border-radius:3px;font-size:9px;border:1px solid #f59e0b20">查看改造方案 →</span>
+            </div>
+          </div>
+        </div>
+        <!-- Right Timeline -->
+        <div style="width:120px;background:#11131a;border-left:1px solid #1e2130;padding:12px 10px;display:flex;flex-direction:column;gap:6px">
+          <div style="color:#6b7280;font-size:9px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px">月份</div>
+          <div style="background:#1e2130;color:#8b9dc3;padding:6px 8px;border-radius:4px;font-size:10px;text-align:center">01月</div>
+          <div style="background:#1e2130;color:#8b9dc3;padding:6px 8px;border-radius:4px;font-size:10px;text-align:center">02月</div>
+          <div style="background:#1e2130;color:#8b9dc3;padding:6px 8px;border-radius:4px;font-size:10px;text-align:center">03月</div>
+          <div style="background:#1e2130;color:#8b9dc3;padding:6px 8px;border-radius:4px;font-size:10px;text-align:center">04月</div>
+          <div style="background:#1e2130;color:#8b9dc3;padding:6px 8px;border-radius:4px;font-size:10px;text-align:center">05月</div>
+          <div style="background:#3b82f6;color:#fff;padding:6px 8px;border-radius:4px;font-size:10px;text-align:center">06月 ✓</div>
+          <div style="color:#2d3748;padding:6px 8px;font-size:10px;text-align:center;cursor:default">——</div>
+          <div style="color:#2d3748;padding:6px 8px;font-size:10px;text-align:center;cursor:default">——</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top:16px">
+  <h3>展开后的单条更新详情</h3>
+  <div class="mockup">
+    <div class="mockup-header">点击「展开」后的效果</div>
+    <div class="mockup-body">
+      <div style="background:#161822;border:1px solid #3b82f620;border-radius:6px;padding:14px;font-family:system-ui,sans-serif">
+        <div style="display:flex;gap:10px;align-items:flex-start">
+          <span style="background:#3b82f6;color:#fff;padding:2px 6px;border-radius:3px;font-size:9px;flex-shrink:0;margin-top:2px">AND</span>
+          <div style="flex:1">
+            <div style="display:flex;justify-content:space-between">
+              <span style="font-size:12px;font-weight:600;color:#e2e8f0">Android 16 Beta 3 发布</span>
+              <span style="color:#4a5568;font-size:10px">2026-06-15</span>
+            </div>
+            <div style="background:#11131a;border-radius:4px;padding:8px 10px;margin-top:8px;font-size:10px;color:#8b9dc3;line-height:1.6">
+              <div>• API Level 36 正式发布，新增 47 个 API</div>
+              <div>• Privacy Sandbox API：Topics、Protected Audience、Attribution Reporting</div>
+              <div>• 前台服务类型新增 dataSync、health、location</div>
+              <div>• 修复 CVE-2026-0012、CVE-2026-0034 等 12 个安全漏洞</div>
+              <div>• 废弃 AsyncTask、LoaderManager，推荐迁移至 Coroutines</div>
+              <div>• 新增 Predictive Back 手势强制启用</div>
+              <div style="margin-top:4px;color:#3b82f6">▲ 收起</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
