@@ -3,7 +3,7 @@ import { ref } from 'vue';
 import type { PlatformUpdate } from '../types';
 import PlatformIcon from './PlatformIcon.vue';
 
-const props = defineProps<{ update: PlatformUpdate }>();
+defineProps<{ update: PlatformUpdate }>();
 
 const expanded = ref(false);
 

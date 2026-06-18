@@ -24,7 +24,7 @@ const realMonth = realNow.getMonth() + 1;
 
 const months = computed<MonthEntry[]>(() => {
   const [year] = props.currentMonth.split('-');
-  const selectedNum = parseInt(props.currentMonth.split('-')[1], 10);
+  const selectedNum = parseInt(props.currentMonth.split("-")[1] ?? "1", 10);
   const available = new Set(props.availableMonths);
 
   return Array.from({ length: 12 }, (_, i) => {

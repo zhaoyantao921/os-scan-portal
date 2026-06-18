@@ -31,7 +31,7 @@ const params = new URLSearchParams(window.location.search);
 const urlMonth = params.get('month') || getCurrentMonth();
 onMounted(() => loadMonth(urlMonth));
 watch(currentMonth, (m) => {
-  const url = new URL(window.location);
+  const url = new URL(window.location.href);
   url.searchParams.set('month', m);
   window.history.replaceState({}, '', url);
 });
