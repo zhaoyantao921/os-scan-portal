@@ -1,26 +1,38 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import type { PlatformUpdate } from '../types';
+import PlatformIcon from './PlatformIcon.vue';
 
-const props = defineProps<{
-  update: PlatformUpdate;
-}>();
+const props = defineProps<{ update: PlatformUpdate }>();
 
 const expanded = ref(false);
 
-const platformConfig = {
-  android: { label: 'Android', color: '#3b82f6' },
-  harmonyos: { label: 'HarmonyOS', color: '#10b981' },
-  ios: { label: 'iOS', color: '#8b5cf6' },
+const platformConfig: Record<string, { label: string; color: string; glow: string; url: string }> = {
+  android: { label: 'AND', color: '#3b82f6', glow: 'rgba(59,130,246,0.15)', url: 'developer.android.com' },
+  harmonyos: { label: 'HM', color: '#10b981', glow: 'rgba(16,185,129,0.15)', url: 'developer.huawei.com' },
+  ios: { label: 'IOS', color: '#8b5cf6', glow: 'rgba(139,92,246,0.15)', url: 'developer.apple.com' },
 };
 </script>
 
 <template>
-  <div class="update-card" :class="{ expanded }">
+  <div
+    class="update-card"
+    :class="{ expanded }"
+    :style="{
+      '--card-glow': platformConfig[update.platform].glow,
+      '--card-accent': platformConfig[update.platform].color
+    }"
+  >
     <div class="card-header" @click="expanded = !expanded">
-      <span class="platform-badge" :style="{ background: platformConfig[update.platform].color }">
-        {{ platformConfig[update.platform].label }}
-      </span>
+      <div class="platform-badge-row">
+        <PlatformIcon :platform="update.platform" :size="16" />
+        <span
+          class="platform-badge"
+          :style="{ background: platformConfig[update.platform].color }"
+        >
+          {{ platformConfig[update.platform].label }}
+        </span>
+      </div>
       <div class="card-info">
         <div class="card-title-row">
           <span class="card-title">{{ update.title }}</span>
@@ -38,37 +50,68 @@ const platformConfig = {
     <div v-else class="expand-hint">
       更新项 {{ update.items.length }} 条 — 点击展开
     </div>
+    <div class="card-source">
+      <span class="source-dot" :style="{ background: platformConfig[update.platform].color }"></span>
+      <span class="source-text">来源：{{ platformConfig[update.platform].url }}</span>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .update-card {
-  background: #161822;
+  background: #0d1117;
   border: 1px solid #1e2130;
   border-radius: 5px;
-  transition: border-color 0.15s;
+  overflow: hidden;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  position: relative;
 }
 
 .update-card:hover {
-  border-color: #2d3748;
+  border-color: var(--card-accent);
+  box-shadow: 0 0 20px var(--card-glow), inset 0 0 20px var(--card-glow);
+}
+
+.update-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--card-accent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.update-card:hover::before {
+  opacity: 0.6;
 }
 
 .card-header {
   display: flex;
+  gap: 8px;
   align-items: flex-start;
-  gap: 10px;
-  padding: 12px;
+  padding: 10px 12px 6px;
   cursor: pointer;
 }
 
-.platform-badge {
+.platform-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.platform-badge {
+  color: #fff;
   padding: 1px 5px;
   border-radius: 2px;
   font-size: 8px;
   font-weight: 600;
-  color: #fff;
-  line-height: 1.6;
+  letter-spacing: 0.3px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
 .card-info {
@@ -78,8 +121,8 @@ const platformConfig = {
 
 .card-title-row {
   display: flex;
+  justify-content: space-between;
   align-items: baseline;
-  gap: 8px;
 }
 
 .card-title {
@@ -92,44 +135,75 @@ const platformConfig = {
   color: #4a5568;
   font-size: 9px;
   flex-shrink: 0;
+  margin-left: 8px;
+  font-family: 'SF Mono', 'Cascadia Code', monospace;
 }
 
 .card-summary {
   color: #8b9dc3;
   font-size: 10px;
-  margin: 4px 0 0;
+  margin-top: 2px;
+  margin-bottom: 0;
 }
 
 .expand-hint {
   color: #4a5568;
   font-size: 9px;
-  padding: 0 12px 8px 32px;
+  padding: 0 12px 4px 48px;
 }
 
 .card-items {
-  background: #11131a;
-  border-radius: 0 0 5px 5px;
-  padding: 12px;
+  background: #0a0c14;
+  padding: 8px 12px 8px 48px;
 }
 
 .card-items ul {
   margin: 0;
-  padding-left: 16px;
-  list-style: disc;
+  padding: 0 0 0 14px;
+  list-style: none;
 }
 
 .card-items li {
   font-size: 10px;
   color: #8b9dc3;
   line-height: 1.7;
+  position: relative;
+}
+
+.card-items li::before {
+  content: '›';
+  position: absolute;
+  left: -12px;
+  color: var(--card-accent);
 }
 
 .collapse-hint {
   display: block;
   text-align: center;
-  color: #3b82f6;
+  color: var(--card-accent);
   font-size: 9px;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 6px;
+}
+
+.card-source {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px 8px 48px;
+  border-top: 1px solid #151a24;
+}
+
+.source-dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.source-text {
+  font-size: 8px;
+  color: #374151;
 }
 </style>

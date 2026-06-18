@@ -23,7 +23,7 @@
     {
       "id": "ios-may-1",
       "platform": "ios",
-      "title": "iOS 19.5 正式版",
+      "title": "iOS 25.5 正式版",
       "date": "2026-05-08",
       "summary": "性能优化 · 修复 CarPlay 问题",
       "items": ["Metal 3 性能增强", "修复邮件应用崩溃"],

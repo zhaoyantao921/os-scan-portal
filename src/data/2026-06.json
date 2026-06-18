@@ -45,13 +45,13 @@
     {
       "id": "ios-1",
       "platform": "ios",
-      "title": "iOS 20.1 正式版推送",
+      "title": "iOS 26.1 正式版推送",
       "date": "2026-06-10",
-      "summary": "SwiftUI 新组件 · Xcode 17 支持 · App Intents 扩展",
+      "summary": "SwiftUI 新组件 · Xcode 23 支持 · App Intents 扩展",
       "severity": "major",
       "items": [
         "SwiftUI 新增 Grid 布局组件、TimelineView 增强",
-        "Xcode 17 正式支持，最低部署目标调整",
+        "Xcode 23 正式支持，最低部署目标调整",
         "App Intents 新增 Siri 快捷指令模板",
         "StoreKit 2 新增订阅管理 API",
         "修复 CarPlay 断连问题",
@@ -103,8 +103,8 @@
     },
     {
       "platform": "ios",
-      "issue": "iOS 20.1 Xcode 17 最低部署目标调整",
-      "solution": "升级 CI/CD 构建环境至 Xcode 17。检查 Deployment Target 是否满足新要求。更新 intentdefinition 文件以支持 App Intents 新模板。",
+      "issue": "iOS 26.1 Xcode 23 最低部署目标调整",
+      "solution": "升级 CI/CD 构建环境至 Xcode 23。检查 Deployment Target 是否满足新要求。更新 intentdefinition 文件以支持 App Intents 新模板。",
       "impact": "medium"
     }
   ]

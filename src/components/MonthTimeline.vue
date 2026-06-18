@@ -18,17 +18,21 @@ interface MonthEntry {
   isFuture: boolean;
 }
 
+const realNow = new Date();
+const realYear = realNow.getFullYear();
+const realMonth = realNow.getMonth() + 1;
+
 const months = computed<MonthEntry[]>(() => {
   const [year] = props.currentMonth.split('-');
-  const currentNum = parseInt(props.currentMonth.split('-')[1], 10);
+  const selectedNum = parseInt(props.currentMonth.split('-')[1], 10);
   const available = new Set(props.availableMonths);
 
   return Array.from({ length: 12 }, (_, i) => {
     const num = i + 1;
     const padded = String(num).padStart(2, '0');
     const key = `${year}-${padded}`;
-    const isCurrent = num === currentNum;
-    const isFuture = num > currentNum;
+    const isCurrent = num === selectedNum;
+    const isFuture = num > realMonth;
     const isScanned = available.has(key);
 
     return {
@@ -41,17 +45,17 @@ const months = computed<MonthEntry[]>(() => {
   });
 });
 
-// Gradient on the connecting line: fades to transparent after the current month
 const lineGradient = computed(() => {
-  const currentNum = parseInt(props.currentMonth.split('-')[1], 10);
-  const stopPercent = (currentNum / 12) * 100;
+  const stopPercent = (realMonth / 12) * 100;
   return `linear-gradient(to bottom, #1e2130 ${stopPercent}%, transparent ${stopPercent}%)`;
 });
 </script>
 
 <template>
   <nav class="timeline">
+    <div class="timeline-accent"></div>
     <div class="timeline-track">
+        <div class="timeline-year">{{ realYear }}</div>
       <div class="timeline-line" :style="{ background: lineGradient }"></div>
       <button
         v-for="m in months"
@@ -77,10 +81,21 @@ const lineGradient = computed(() => {
 .timeline {
   width: 64px;
   flex-shrink: 0;
-  background: #11131a;
+  background: #0a0e14;
   border-left: 1px solid #1e2130;
   overflow-y: auto;
   padding: 8px 0;
+  position: relative;
+}
+
+.timeline-accent {
+  position: absolute;
+  top: 0;
+  left: -1px;
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(to bottom, #3b82f6, transparent);
+  opacity: 0.5;
 }
 
 .timeline-track {
@@ -89,6 +104,15 @@ const lineGradient = computed(() => {
   align-items: center;
   position: relative;
   gap: 0;
+}
+
+.timeline-year {
+  font-size: 9px;
+  color: #3b82f6;
+  font-weight: 500;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  opacity: 0.6;
 }
 
 .timeline-line {
@@ -120,61 +144,69 @@ const lineGradient = computed(() => {
 
 .timeline-dot:disabled {
   cursor: default;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
 .timeline-dot .dot {
   display: block;
   border-radius: 50%;
-  transition: background-color 0.2s, box-shadow 0.2s;
+  transition: background-color 0.2s, box-shadow 0.3s;
   flex-shrink: 0;
 }
 
-/* Scanned (past months with data) */
 .timeline-dot.scanned .dot {
-  width: 8px;
-  height: 8px;
-  background: #4a5568;
+  width: 7px;
+  height: 7px;
+  background: rgba(148, 163, 184, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .timeline-dot.scanned:hover .dot {
   background: #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
 .timeline-dot.scanned .label {
   font-size: 10px;
-  color: #4a5568;
+  color: #64748b;
   transition: color 0.2s;
 }
 
 .timeline-dot.scanned:hover .label {
-  color: #93c5fd;
+  color: #60a5fa;
 }
 
-/* Current month */
 .timeline-dot.current .dot {
   width: 10px;
   height: 10px;
   background: #3b82f6;
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.6), 0 0 24px rgba(59, 130, 246, 0.2);
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 12px rgba(59, 130, 246, 0.6), 0 0 24px rgba(59, 130, 246, 0.2); }
+  50% { box-shadow: 0 0 18px rgba(59, 130, 246, 0.8), 0 0 32px rgba(59, 130, 246, 0.3); }
 }
 
 .timeline-dot.current .label {
   font-size: 11px;
   font-weight: 600;
-  color: #3b82f6;
+  color: #60a5fa;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
 }
 
-/* Future months */
 .timeline-dot.future .dot {
-  width: 6px;
-  height: 6px;
-  background: #161822;
-  border: 1px solid #1a1f2e;
+  width: 5px;
+  height: 5px;
+  background: #0d1117;
+  border: 1px solid #151a24;
 }
 
 .timeline-dot.future .label {
   font-size: 9px;
-  color: #1c2130;
+  color: #151a24;
 }
 </style>
